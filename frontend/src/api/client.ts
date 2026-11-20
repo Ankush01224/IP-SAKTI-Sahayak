@@ -63,7 +63,8 @@ export interface HealthResponse {
   llm_provider: string;
 }
 
-const API_BASE = '/api/v1';
+const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const API_BASE = `${API_ORIGIN}/api/v1`;
 
 export const api = {
   async sendChat(query: string, language: string = 'en', sessionId?: string): Promise<ChatResponse> {
@@ -147,7 +148,7 @@ export const api = {
   },
 
   async getHealth(): Promise<HealthResponse> {
-    const res = await fetch('/health');
+    const res = await fetch(`${API_ORIGIN}/health`);
     if (!res.ok) {
       throw new Error('Health check failed');
     }
