@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ip-sakti-sahayak-j7uj.onrender.com/api/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "https://ip-sakti-sahayak-j7uj.onrender.com/health"
+    }
+  ]
+}

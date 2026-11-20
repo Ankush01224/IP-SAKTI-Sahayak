@@ -81,7 +81,9 @@ export const api = {
         }),
       });
     } catch {
-      throw new Error('Cannot reach the server. Make sure the backend is running on port 8000.');
+      throw new Error(
+        `Cannot reach the backend at ${API_ORIGIN || window.location.origin}. Check that the Render service is deployed and accessible.`
+      );
     }
 
     if (!res.ok) {
